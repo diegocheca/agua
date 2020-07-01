@@ -1,0 +1,1 @@
+http://www.vidadelprogramador.com/crear-backup-automatico-de-base-de-datos-mysql-con-un-cron/

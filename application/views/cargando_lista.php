@@ -65,8 +65,8 @@ h2 {
 
 </style>
 <div ng-app="sortableApp" ng-controller="sortableController" class="container">
-  <h2>Lista de Conexion para Ordenar </h2>
-  <hr>
+	<h2>Lista de Conexion para Ordenar </h2>
+	<hr>
 	<label>Elegir sector: </label>
 	<select ng-options="option for option in listOfOptions" 
 		ng-model="selectedItem"
@@ -74,36 +74,31 @@ h2 {
 		ng-init="selectedItem =  'A'"
 		>
 	</select>
-    <p>Estado: <b>{{calculatedValue}}</b></p>
-   
-   <hr>
-  <div class="floatleft">
-    <ul ui-sortable="sortableOptions" ng-model="list" class="list">
-      <li ng-repeat="item in list" class="item">
-        {{$index+1}}°   {{item.text}}
-        <br>
-      </li>
-      <br>
-      <hr>
-    </ul>
-  </div>
+	<p>Estado: <b>{{calculatedValue}}</b></p>
+	<hr>
+	<div class="floatleft">
+		<ul ui-sortable="sortableOptions" ng-model="list" class="list">
+			<li ng-repeat="item in list" class="item">
+				{{$index+1}}°   {{item.text}}
+				<br>
+			</li>
+		<br>
+		<hr>
+		</ul>
+	</div>
 
 	<div class="floatleft" style="margin-left: 20px;">
-  	<button ng-click="guardar_orden()" class="btn bgm-indigo btn-float waves-button waves-float waves-effect waves-circle waves-float"><i class="zmdi zmdi-save"></i></button>
-    <ul class="list logList">
-      <li ng-repeat="entry in sortingLog track by $index" class="logItem">
-        {{entry}}
-      </li>
-    </ul>
-  </div>
-  
+		<button ng-click="guardar_orden()" class="btn bgm-indigo btn-float waves-button waves-float waves-effect waves-circle waves-float"><i class="zmdi zmdi-save"></i></button>
+		<ul class="list logList">
+			<li ng-repeat="entry in sortingLog track by $index" class="logItem">
+				{{entry}}
+			</li>
+		</ul>
+	</div>
   <div class="clear"></div>
-
- <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.4/angular.min.js"></script>
   <script src="https://rawgithub.com/angular-ui/ui-sortable/master/src/sortable.js"></script>
-
   <script type="text/javascript">
 	var myapp = angular.module('sortableApp', ['ui.sortable']);
 	myapp.controller('sortableController', function ($scope, $http) {
@@ -113,7 +108,7 @@ h2 {
 		var valor_inicial = 'A';
 		$http({
 			method: 'GET',
-			url: 'http://localhost/codeigniter/Automatico/datos/'+valor_inicial
+			url: 'http://localhost/codeigniter/conexion/datos/'+valor_inicial
 		}).then(function successCallback(response) {
 			var mi_lista=  angular.fromJson(response.data);
 			angular.forEach(mi_lista, function(salu) {
@@ -135,7 +130,7 @@ h2 {
 	//alert("legi el barrio:" +$scope.selectedItem );
     $http({
 		method: 'GET',
-		url: 'http://localhost/codeigniter/Automatico/datos/'+$scope.selectedItem
+		url: 'http://localhost/codeigniter/conexion/datos/'+$scope.selectedItem
 		}).then(function successCallback(response) {
 			var mi_lista=  angular.fromJson(response.data);
 			console.log(mi_lista[0].id_conexion);
@@ -166,7 +161,7 @@ h2 {
 		return indice+"-"+i.conexion;
 	}).join(', ');
 	//alert(logEntry);
-	var url_mia = 'http://localhost/codeigniter/Automatico/guardar_orden_controller';
+	var url_mia = 'http://localhost/codeigniter/conexion/guardar_orden_controller';
 	$http.post(url_mia, {"name": logEntry}).
 						success(function(data, status) {
 							console.log(data+ "    - estado: "+status);

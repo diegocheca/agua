@@ -200,7 +200,7 @@
 									if($this->session->userdata('rol') == "administrador")
 									echo '<li>  '.anchor('mediciones/mediciones_a_aprobar','Mediciones Raras').'</li>';
 									?>
-									<li><?php echo anchor('Automatico/probando_lista','Ordenar Lote'); ?></li>
+									<li><?php echo anchor('conexion/probando_lista','Ordenar Lote'); ?></li>
 								</ul>
 							</li>
 							<!-- <li class="sub-menu">

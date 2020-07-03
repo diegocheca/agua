@@ -422,4 +422,106 @@ class Conexion extends MY_Controller {
 			var_dump($resultado);
 		}
 	}
+
+	public function probando_lista()
+	{
+		//Usado: 2-7-20 - Diego
+		//Corregido : 2-7-20 - Diego
+		//Como se usa: solo muestra info 
+		//Que es lo que hace: solo muestra la lista de conexiones por cada barrio
+		//Mejora: mejorar visual y probar mas profundamente
+		/*Pasos que hace
+		Paso 1 - carga la pantalla con una tabla por default
+		*/
+		$datos['bread']=$this->breadcrumbs->show();
+		$segmentos_totales=$this->uri->total_segments();
+		$datos['segmentos']=$segmentos_totales;
+		$datos['titulo']= "Orden Conexiones";//Titulo de la página
+		$datos['consulta']=$this->Crud_model->get_data_sin_borrados("usuarios", "Usuarios_Borrado");
+		$datos['mensaje'] = $this->session->flashdata('aviso');
+		$datos["sector_buscado"] = "A";
+		$this->load->view('templates/header',$datos);
+		$this->load->view("cargando_lista",$datos);
+		$this->load->view('templates/footer');
+	}
+	public function datos($sector)
+	{
+		//Usado: 2-7-20 - Diego
+		//Corregido : 2-7-20 - Diego
+		//Que es lo que hace: busca la ifnormacion de las conexiones que le son pedidas por el view mediante angular
+		//Como se usa: ir a la url y pasarle por parametro el sector, y se devuelven los datos en json
+		//Mejora: nada de momento (la cosnutla es eficiente)
+		/*Pasos que hace
+		Paso 1 - arregla los string que se piden , ajustando a los de la bd
+		Paso 2 - busco en la bd
+		Paso 3 - lo paso a un array
+		Paso 4 - devuelvo en json
+		*/
+		//Paso 1 - arregla los string que se piden , ajustando a los de la bd
+		$arrayName = array();
+		if($sector == 'V%20Elisa')
+			$sector ="V Elisa";
+		if($sector == 'Sta%20Barbara')
+			$sector ="Santa Barbara";
+		if($sector == "ASENTAMIENTO%20OLMOS")
+			$sector = "ASENTAMIENTO OLMOS";
+		if($sector == "Jardin")
+			$sector = "Jardines del Sur";
+		if($sector == "medina")
+			$sector = "Medina";
+		//Paso 2 - busco en la bd
+		$resultado = $this->Crud_model->buscar_orden_conexion($sector);
+		if($resultado)
+		{
+			$i=0;
+			foreach ($resultado as $key ) {
+				$arrayName[$i] = array(
+					'id_conexion' => $key->Conexion_Id, 
+					'orden_acutal' => $key->Conexion_UnionVecinal,
+					'orden_modificado' => null
+					); 
+				$i++;
+			}
+		}
+		else 
+		{
+			$arrayName[0] = array(
+					'id_conexion' => "Sin conexion", 
+					'orden_acutal' => 0,
+					'orden_modificado' => null
+					); 
+		}
+		//Paso 4 - devuelvo en json
+		echo json_encode($arrayName);
+	}
+	public function guardar_orden_controller()
+	{
+		//Usado: 2-7-20 - Diego
+		//Corregido : 2-7-20 - Diego
+		//Que es lo que hace: guarda los datos del orden de la conexiones que se modifico en la view
+		//Como se usa: ir a la url y pasarle los datos por parametros, y se devuelven los datos en json
+		//Mejora: nada de momento (la cosnutla es eficiente)
+		/*Pasos que hace
+		Paso 1 - se leen los datos enviados
+		Paso 2 - se parsean con la ","
+		Paso 3 - Itero sobre cada una de las conexiones del barrio
+		Paso 4 - se guardan los datos
+		*/
+		//Paso 1 - se leen los datos enviados
+		$get = file_get_contents('php://input');
+		$json_get = json_decode($get);
+		//var_dump($json_get);
+		//Paso 2 - se parsean con la ","
+		$ordenes = explode(",", $json_get->name);
+		//Paso 3 - Itero sobre cada una de las conexiones del barrio
+		foreach ($ordenes as $key) {
+			$datos = explode("-", $key);
+			$datos_conexion = array(
+				'Conexion_UnionVecinal' => $datos[0]);
+			//Paso 4 - se guardan los datos
+			$resultado = $this->Crud_model->update_data($datos_conexion, $datos[1], "conexion","Conexion_Id");
+			echo "Posicion:".$datos[0]." y Id:".$datos[1]."   -   ";
+		}
+	}
+	
 }

@@ -17,7 +17,7 @@
 							<label for="inputNombreUsuario">Nombre Usuario</label>
 							<div class="input-group form-group">
 								<span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
-								<input id="inputNombreUsuario" placeholder="Nombre Usuario" type="text" maxlength="200" name="inputNombreUsuario" class="form-control input-sm" readonly
+								<input id="inputNombreUsuario" placeholder="Nombre Usuario" type="text" maxlength="200" name="inputNombreUsuario" class="form-control input-sm" 
 									<?php 
 									if(isset($bonificacion))
 										echo  'value= "'.$bonificacion->Cli_RazonSocial.'"';
@@ -29,7 +29,7 @@
 							<label for="inputConexionId">Conexion ID</label>
 							<div class="input-group form-group">
 								<span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
-								<input id="inputConexionId" placeholder="Conexion id" type="text" readonly name="inputConexionId" class="form-control input-sm" required
+								<input id="inputConexionId" placeholder="Conexion id" type="text"  name="inputConexionId" class="form-control input-sm" required
 									<?php 
 									if(isset($bonificacion))
 										echo  'value= "'.$bonificacion->Conexion_Id.'"';
@@ -41,7 +41,7 @@
 							<label for="inputMonto">Monto Deuda</label>
 							<div class="input-group form-group">
 								<span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
-								<input id="inputMonto" type="text"  name="inputMonto" readonly class="form-control input-sm" 
+								<input id="inputMonto" type="text"  name="inputMonto"  class="form-control input-sm" 
 								 	<?php 
 									if(isset($bonificacion))
 										echo  'value= "'.$bonificacion->Conexion_Deuda.'"';

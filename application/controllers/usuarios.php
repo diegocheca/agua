@@ -1,9 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-// CONTROLADOR INVENTARIO
-//////////////////////////
-
-//class Tipos_medidores extends CI_Controller {
+/*
+Este controller se encarga de hacer el abm de usuarios
+en la tabla usuarios
+pero tiene que estar bien sincronizado con los hooks del sistema
+*/
 class Usuarios extends CI_Controller {
 
 	public function __construct(){

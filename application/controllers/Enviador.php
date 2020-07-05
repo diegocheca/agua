@@ -28,9 +28,9 @@ class Enviador extends CI_Controller
 		$this->email->initialize($configGmail);
 
 		$this->email->from('trazabilidad.rsu@gmail.com');
-		$this->email->to("checcarelli.s@gmail.com");
+		$this->email->to("diegochecarellis@gmail.com");
 		$this->email->subject('Envio de Boletas mensual');
-		$this->email->message('<h2>SR Oso la secretaria de las panales</h2><hr><br>Le informa que usted ha saqueado demasiados panales para comer miel');
+		$this->email->message('<h2>Buenos dias capo</h2>');
 		$this->email->send();
 		//con esto podemos ver el resultado
 		var_dump($this->email->print_debugger());
@@ -61,7 +61,7 @@ class Enviador extends CI_Controller
 		$this->email->from('trazabilidad.rsu@gmail.com');
 		$this->email->to("checcarelli.s@gmail.com");
 		$this->email->subject('Envio de Boletas mensual');
-		$this->email->message('<h2>SR Oso la secretaria de las panales</h2><hr><br>Le informa que usted ha saqueado demasiados panales para comer miel');
+		$this->email->message('<h2>Buenos dias capo</h2>');
 		$this->email->attach('C:\xampp\htdocs\codeigniter\boletas\boleta_septiembre.pdf');
 		$this->email->send();
 		//con esto podemos ver el resultado

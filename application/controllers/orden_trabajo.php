@@ -1,4 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/*
+
+este controller se encarga de c*/
 class Orden_trabajo extends CI_Controller {
 
 	public function __construct(){

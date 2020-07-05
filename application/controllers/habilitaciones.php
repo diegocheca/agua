@@ -1,8 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-// CONTROLADOR INVENTARIO
-//////////////////////////
-
+/*
+No tengo ni idea para que es este controller
+cuando se accede te mnanda a una pagina donde hay 9 checkbox para habilitar
+hay una tabla en la bd llamada habilitaciones
+anda bien
+puede utilizarse en algunos abm , habria q verlo bien pero anda
+*/
 //class Tipos_medidores extends CI_Controller {
 class habilitaciones extends CI_Controller {
 

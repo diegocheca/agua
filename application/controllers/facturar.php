@@ -1,5 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+/*
+SE DEJO DE USAR: SE USA EL CONTROLLER NUEVO - FACTURAS
+*/
 class Facturar extends MY_Controller {
 	public function __construct(){
 		parent::__construct();

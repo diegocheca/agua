@@ -2,13 +2,17 @@
 
 // CONTROLADOR INVENTARIO
 //////////////////////////
-
+//Usado: 3-7-20 - Diego
+//Corregido : 3-7-20 - Diego
+//Como se usa: este controlador se encarga de hacer el abm de inventario , usa las tablas medidor y tmedidor
+//Que es lo que hace: solo el abm , listado
+//Nota: esta relevado en una pagina de onenote , que se llama F. Inventario
+//Mejora: documentadas en onenote
 class Inventario extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model("Crud_model");
 	}
-
 	// Pagina de Inventario
 	public function index(){
 		if (!$this->session->userdata('login')):
@@ -18,41 +22,29 @@ class Inventario extends CI_Controller {
 		// agregar breadcrumbs
 		$this->breadcrumbs->push('Dashboard', '/');
 		$this->breadcrumbs->push('Productos', '/inventario');
-
 		// salida
 		$datos['bread']=$this->breadcrumbs->show();
-
 		$segmentos_totales=$this->uri->total_segments();
 		$datos['segmentos']=$segmentos_totales;
 		// ./ agregar breadcrumbs
-
 		$datos['titulo']= "Inventario";//Titulo de la página
 		$datos['consulta']=$this->Crud_model->get_data_join_sin_borrados("medidor","tmedidor","Medidor_Borrado", "Medidor_TMedidor_Id", "TMedidor_Id" );
 		$datos['mensaje'] = $this->session->flashdata('aviso');
-		
 		$this->load->view('templates/header',$datos);
 		$this->load->view('inventario/inventario_vista',$datos);
 		$this->load->view('templates/footer');
-$this->load->view('templates/footer_fin');
-
-		
-
-		//if($datos ['aviso'] != null)
-		//	$this->load->view("templates/notificacion_view", $datos);
+		$this->load->view('templates/footer_fin');
 		endif;
-
-		
-		
 	}
 
-public function borrar_medidor()
+	public function borrar_medidor()
 	{
 		$id=  $this->input->post("id");
 		$data = array('Medidor_Borrado' => 1, );
 		$resultado =  $this->Crud_model->borrar_cliente($data,$id, "medidor", "Medidor_Id");
 		echo true;
 	}
-public function editar_medidor($id_medidor){
+	public function editar_medidor($id_medidor){
 			//echo "llegue del formulario";die();
 		if (!$this->session->userdata('login') || $this->uri->segment(3) == FALSE):
 			$this->session->set_flashdata('mensaje','Debes Iniciar Sesion');
@@ -68,7 +60,7 @@ public function editar_medidor($id_medidor){
 				$this->load->view('templates/header', $datos);
 				$this->load->view('inventario/agregar', $datos);
 				$this->load->view('templates/footer');
-$this->load->view('templates/footer_fin');
+				$this->load->view('templates/footer_fin');
 			}else{
 				$this->session->set_flashdata("document_status",mensaje("El Meididor no existe","danger"));
 				redirect('inventario');
@@ -131,7 +123,6 @@ $this->load->view('templates/footer_fin');
 		endif;
 	}
 
-
 	public function agregar()
 	{
 		if (!$this->session->userdata('login') ):
@@ -187,9 +178,6 @@ $this->load->view('templates/footer_fin');
 		endif;
 	}
 
-
-
-
 	public function agregar_producto(){
 		if (!$this->session->userdata('login')):
 			$this->session->set_flashdata('mensaje','Debes Iniciar Sesion');
@@ -214,25 +202,21 @@ $this->load->view('templates/footer_fin');
 			$this->load->view('templates/header',$datos);
 			$this->load->view('inventario/agregar');
 			$this->load->view('templates/footer');
-$this->load->view('templates/footer_fin');
+			$this->load->view('templates/footer_fin');
 
 			$btn_enviar = $this->input->post('enviar');
 				if (isset($btn_enviar)) {
-				
 				//asignamos una variable a cada campo
-
 				$sku=$this->security->xss_clean(strip_tags($this->input->post('codigo_producto')));
 				$nombre_producto=$this->security->xss_clean(strip_tags($this->input->post('nombre_producto')));
 				$cantidad=$this->security->xss_clean(strip_tags($this->input->post('cantidad')));
 				$precio=$this->security->xss_clean(strip_tags($this->input->post('precio')));
-
 				$data = array(
 					'sku' 				=> $sku,
 					'nombre_producto' 	=> $nombre_producto,
 					'cantidad'			=> $cantidad,
 					'precio_unit'		=> $precio,
 				 );
-
 				//comprobamos que los campos no esten vacios
 
 					if( isset($sku) && !empty($sku) && isset($nombre_producto) && !empty($nombre_producto) 
@@ -243,7 +227,6 @@ $this->load->view('templates/footer_fin');
 						redirect(base_url('inventario'));
 					}
 			}
-
 		endif;
 	}
 }

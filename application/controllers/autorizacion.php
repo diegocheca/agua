@@ -5,10 +5,23 @@ class Autorizacion extends CI_Controller {
 		$this->load->model('Nuevo_model');
 	}
 	public function index($revisado = null,$mes = null,$anio = null,$id_conexion = null, $sector = null, $inicio = null , $fin = null){
+		//Usado: 2-7-20 - Diego
+		//Corregido : 2-7-20 - Diego
+		//Que es lo que hace: busca todas las autorizaciones pendientes y las muestra por pantalla
+		//Como se usa: se accede mediante url y se debe difinir todos los paramettros de la url
+		//Mejora: nada de momento (la cosnutla es eficiente)
+		/*Pasos que hace
+		Paso 1 - compruebo si esta logueado
+		Paso 2 - reviso los parametros
+		Paso 3 - busco las autorizaciones relacionadas con las facturas
+		Paso 4 - REVISAR: FALTA TERMINAR
+		*/
+		//Paso 1 - compruebo si esta logueado
 		if (!$this->session->userdata('login')): //estoy logeado
 			$this->session->set_flashdata('mensaje','Debes Iniciar Sesion');
 			redirect(base_url());
 		else:
+			//Paso 2 - reviso los parametros
 			if($revisado == null)
 				$revisado = $this->input->post('revisado_autorizacion');
 			if($mes == null)
@@ -30,18 +43,13 @@ class Autorizacion extends CI_Controller {
 				$inicio = $this->input->post('inicio_autorizacion');
 			if($fin == null)
 				$fin = $this->input->post('fin_autorizacion');
-
+			//Paso 3 - busco las autorizaciones relacionadas con las facturas
 			$datos['autorizacion'] = $this->Nuevo_model->get_data_autorizacion($revisado,$mes,$anio,$id_conexion,$sector,$inicio,$fin);
-			//var_dump($datos['autorizacion']);die();
-
 			$datos["mes_buscado"] = $mes;
 			$datos["anio"] = $anio;
 			$datos["limite"] = "S/L";
 			$datos["sector"] = "S/S";
 			$datos["sectores"] = $this->Nuevo_model->get_data_sectores();
-			
-
-
 
 			$datos['titulo'] = 'Lista de Auditoria';
 			$this->load->view('templates/header',$datos);

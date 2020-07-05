@@ -263,7 +263,6 @@
 								<ul>
 									<li><?php echo anchor('usuarios/join_zarpado','Super join'); ?></li>
 									<li><?php echo anchor('facturar/ultra_automatica','Crear Boletas'); ?></li>
-									<li><?php echo anchor('Automatico/crear_tabla_mediciones','Mediciones Vacias'); ?></li>
 									
 								</ul>
 							</li>

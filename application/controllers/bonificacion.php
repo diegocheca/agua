@@ -190,10 +190,21 @@ class bonificacion extends CI_Controller {
 		endif;
 	}
 	public function agregar_bonificacion(){
+		//Usado: 2-7-20 - Diego
+		//Corregido : 2-7-20 - Diego
+		//Como se usa: se accede a la url , nada mas
+		//Que es lo que hace: muestra el formulario para cargar una bonificacion
+		//Mejora: buscar dueda cuando se elige el nombre - - cuando se elige el num de conexion no se completa el nombre -  probar al 100%
+		/*Pasos que hace
+		Paso 1 - comprueba estar logueado
+		Paso 2 - armo view
+		*/
+		//Paso 1 - comprueba estar logueado
 		if (!$this->session->userdata('login')):
 			$this->session->set_flashdata('mensaje','Debes Iniciar Sesion');
 			redirect(base_url());
 		else:
+			//Paso 2 - armo view
 			// agregar breadcrumbs
 			$this->breadcrumbs->push('Dashboard', '/');
 			$this->breadcrumbs->push('Usuarios', '/usuarios');

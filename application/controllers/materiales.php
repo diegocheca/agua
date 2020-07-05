@@ -1,9 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-// CONTROLADOR INVENTARIO
-//////////////////////////
+/*/ 
+Este controller se encarga de realizar el abm de los materiales
+que luego son usados en las ordenes de trabajo
 
-//class Tipos_medidores extends CI_Controller {
+
+*/
+
 class materiales extends CI_Controller {
 
 	public function __construct(){

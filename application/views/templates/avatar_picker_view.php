@@ -34,6 +34,11 @@
 				</select>
 			</div>
 		</div>
+		<script src="http://localhost/codeigniter/js/jquery-2.1.1.min.js"></script>
+		<script src="http://localhost/codeigniter/js/bootstrap.min.js"></script>
+		
+		<script src="http://localhost/codeigniter/js/functions.js"></script>
+		
 		<script src="<?php echo base_url('image-picker/image-picker.js'); ?> "></script>
 		<script>
 			jQuery("select.image-picker").imagepicker({

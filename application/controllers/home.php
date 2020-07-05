@@ -1,5 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+/*
+Este controller es el que se encargada de traer el dashboard y los datos para ponerlños en la vista
+es el primer controller que carga codeigniter x defecto
+*/
 class Home extends MY_Controller {
 	public function __construct(){
 		parent::__construct();
@@ -134,13 +137,29 @@ class Home extends MY_Controller {
 			$this->load->view('templates/footer_fin');
 		endif;
 	}
-
 	public function logout(){
+		//Usado: 3-7-20 - Diego
+		//Corregido : 3-7-20 - Diego
+		//Como se usa: se accede mediante el boton de la derecha arriba.
+		//Que es lo que hace: se usa para eliminar la sesion que se creo cuando se loguea
+		//Mejora: nada
+		/*Pasos que hace
+		Paso 1 - borra la sesion
+		*/
 		$this->session->sess_destroy();
 		redirect(base_url());
 	}
+
 	public function mostrar_picker ()
 	{
+		//Usado: 3-7-20 - Diego
+		//Corregido : 3-7-20 - Diego
+		//Como se usa: se accede por medio de url , deberia poder accederse mediante click en avatar del usuario logueadi
+		//Que es lo que hace: se usa para eliminar la sesion que se creo cuando se loguea
+		//Mejora: mejorar la visual , poner mas avatar, y hacer que se guarde la seleccion
+		/*Pasos que hace
+		Paso 1 - carga la vista , y se hace todo en la view
+		*/
 		echo $this->load->view("templates/avatar_picker_view",true);
 	}
 }

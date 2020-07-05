@@ -1,4 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/*
+este controller deberia gestionar las notificiaciones
+pero e s mil veces mas complejo q esto
+*/
 class Notificacion extends CI_Controller {
 
 	public function __construct(){

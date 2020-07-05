@@ -1,7 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-// CONTROLADOR INVENTARIO
-//////////////////////////
+
 
 class Tipos_medidores extends CI_Controller {
 
@@ -36,7 +35,7 @@ class Tipos_medidores extends CI_Controller {
 		$this->load->view('templates/header',$datos);
 		$this->load->view('tipos_medidores/tipos_medidores',$datos);
 		$this->load->view('templates/footer');
-$this->load->view('templates/footer_fin');
+		$this->load->view('templates/footer_fin');
 
 		
 
@@ -70,15 +69,15 @@ public function editar_tipo_medidor($id_medidor){
 				$this->load->view('templates/header', $datos);
 				$this->load->view('tipos_medidores/agregar', $datos);
 				$this->load->view('templates/footer');
-$this->load->view('templates/footer_fin');
+				$this->load->view('templates/footer_fin');
 			}else{
 				$this->session->set_flashdata("document_status",mensaje("El Tipo de Meididor no existe","danger"));
 				redirect('tipos_medidores');
 			}
 		endif;
-	}
+}
 
-	public function modificar_tmedidor(){
+public function modificar_tmedidor(){
 		if (!$this->session->userdata('login') ):
 			$this->session->set_flashdata('mensaje','Debes Iniciar Sesion');
 			redirect(base_url());
@@ -125,7 +124,7 @@ $this->load->view('templates/footer_fin');
 				redirect(base_url('tipos_medidores'));
 			}
 		endif;
-	}
+}
 
 
 	public function agregar()
@@ -203,7 +202,7 @@ $this->load->view('templates/footer_fin');
 			$this->load->view('templates/header',$datos);
 			$this->load->view('tipos_medidores/agregar');
 			$this->load->view('templates/footer');
-$this->load->view('templates/footer_fin');
+		$this->load->view('templates/footer_fin');
 		endif;
 	}
 }

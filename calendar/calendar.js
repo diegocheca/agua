@@ -123,7 +123,7 @@ $(document).ready(function() {
 		});
 	});
 
-		$.post('http://192.168.1.61/codeigniter/tareas/getEventos',
+		$.post('http://localhost/codeigniter/tareas/getEventos',
 			function(data){
 				$('#calendar').fullCalendar({
 					header: {

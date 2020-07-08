@@ -302,10 +302,10 @@ class Imprimir extends MY_Controller {
 		//$datos["fa"] = $this->Crud_model->get_data_row_sin_borrado("conexion","Conexion_Id","Conexion_Borrado",$id_conexion);
 		$datos["conexion"] = $this->Impresiones_model->buscar_por_conexion($id_conexion);
 		if($datos["conexion"] ==  null )
-			echo "no existe la conexion buscada. Comuniquese con el administrador.  <a href='http://192.168.1.61/codeigniter'>volver al sistema</a> ";die();	
+			echo "no existe la conexion buscada. Comuniquese con el administrador.  <a href='http://localhost/codeigniter'>volver al sistema</a> ";die();	
 		$datos["boleta"] = $this->Impresiones_model->buscar_ultima_boleta($datos["conexion"]->Conexion_Cliente_Id);
 		if($datos["boleta"] == null )
-			echo "no se ha creado ninguna boleta para esta conexion. Hagalo <a href='http://192.168.1.61/codeigniter/mediciones/agregar_medicion'>aqui</a>";die();
+			echo "no se ha creado ninguna boleta para esta conexion. Hagalo <a href='http://localhost/codeigniter/mediciones/agregar_medicion'>aqui</a>";die();
 		$datos["configuracion"] =  $this->Crud_model->get_data("configuracion");
         var_dump($datos["boleta"] );die();
 		$pdf = new eFPDF();

@@ -199,7 +199,7 @@ public function crear_informe_pantalla()
 	                		echo '<tr class="danger">';
 	                	else
 	                		echo '<tr>';
-	                	echo '<td><a  target="_blank" href="http://192.168.1.61/codeigniter/orden_trabajo/editar_orden_trabajo/'.$key->OrdenTrabajo_Id.'">'.$indice.'</a></td>';
+	                	echo '<td><a  target="_blank" href="http://localhost/codeigniter/orden_trabajo/editar_orden_trabajo/'.$key->OrdenTrabajo_Id.'">'.$indice.'</a></td>';
 	                	echo '<td>'.$key->OrdenTrabajo_Tarea.'</td>';
 	                	echo '<td>'.date( "d/m/Y ", strtotime($key->OrdenTrabajo_FechaInicio) ).'</td>';
 	                	echo '<td>'.date( "d/m/Y ", strtotime($key->OrdenTrabajo_FechaFin) ).'</td>';

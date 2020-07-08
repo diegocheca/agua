@@ -261,7 +261,7 @@
 							<li class="sub-menu">
 								<a href=""><i style="color:red" class="zmdi zmdi-daydream-setting"></i>SUDO</a>
 								<ul>
-									<li><?php echo anchor('usuarios/join_zarpado','Super join'); ?></li>
+									<li><?php echo anchor('auditoria/join_zarpado','Super join'); ?></li>
 									<li><?php echo anchor('facturar/ultra_automatica','Crear Boletas'); ?></li>
 									
 								</ul>

@@ -92,33 +92,6 @@ public function borrar_materiales()
 		endif;
 	}
 
-	public function modificar_bonificacion($id){
-		if (!$this->session->userdata('login') || $this->uri->segment(3) == FALSE):
-			$this->session->set_flashdata('mensaje','Debes Iniciar Sesion');
-			redirect(base_url());
-		else:
-			//obtiene la informacion del cliente en la base de datos
-			$datos['bonificacion'] = $this->Crud_model->get_bonificacion_id_sin_borrados($id);
-		//var_dump($datos['bonificacion']) ;die();
-			//$datos['tipos'] = $this->Crud_model->get_data('tmedidor');
-			$datos['url'] =base_url()."bonificacion/agregar_bonificacion";
-			if ($datos['bonificacion']) {
-				$datos['titulo'] = "Editar Usuarios";
-				$this->load->view('templates/header', $datos);
-				$this->load->view('bonificacion/agregar', $datos);
-
-				$this->load->view('templates/footer');
-				$this->load->view('templates/footer_fin');
-				$this->load->view('bonificacion/cargar_js_bonificacion');
-				
-			}else{
-				$this->session->set_flashdata("document_status",mensaje("La Bonificacion No existe","danger"));
-				redirect('bonificacion');
-			}
-		endif;
-	}
-
-
 	public function guardar_agregar()
 	{
 		if (!$this->session->userdata('login') ):

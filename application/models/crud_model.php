@@ -168,7 +168,7 @@ public function traer_facturas_por_barrio_nuevo_todocampo($sector = -1, $mes = -
 
 
 	
-//INICIO DEL CALENDARIO
+	//INICIO DEL CALENDARIO
 	public function getEventos(){
 		$this->db->select('OrdenTrabajo_Id id, OrdenTrabajo_Tarea title, OrdenTrabajo_FechaInicio start, OrdenTrabajo_FechaFin end, OrdenTrabajo_Estado url,  OrdenTrabajo_Porcentaje porcentaje, OrdenTrabajo_Observacion observacion, OrdenTrabajo_CodigoMaterial1 materiales, OrdenTrabajo_Timestamp creada');
 		$this->db->where('OrdenTrabajo_Borrado',0);
@@ -239,6 +239,19 @@ public function traer_facturas_por_barrio_nuevo_todocampo($sector = -1, $mes = -
 			return false;
 		endif;
 	}
+
+	public function get_ordenes_pendientes(){
+		$this->db->where("OrdenTrabajo_Borrado",0);
+		$this->db->where("OrdenTrabajo_Estado",0);
+		$consulta = $this->db->get("ordenTrabajo");
+
+		if ($consulta->num_rows() > 0):
+			return $consulta->result();
+		else:
+			return false;
+		endif;
+	}
+
 
 	public function get_tareas_incompletas($tabla, $campo){
 		$this->db->where($campo,0);

@@ -240,7 +240,7 @@
 								</div>
 							</div>
 							<div class="col-md-6">
-								<!-- selección múltiple ->
+								<!-- selección múltiple -->
 								<select name="miselect[]" id="select_material" class="chosen" data-placeholder="Elige tus colores favoritos" style="width:90%;display:block" multiple[] >
 									<option value="azul">Azul</option>
 									<option value="amarillo">Amarillo</option>

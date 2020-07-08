@@ -127,10 +127,10 @@ class Home extends MY_Controller {
 				$this->load->view('templates/calendar_view');
 				$datos["tareas"] = $this->Crud_model->get_tareas_incompletas("tarea","Tarea_Borrado");
 				//var_dump($datos["tareas"]);die();
-				//$this->load->view('dashboard/todo_list_view',$datos);
-				// $this->load->view('dashboard/mediores_graficos_view');
-				// $this->load->view('dashboard/graficos_pagos_view');
-				//$this->load->view('dashboard/recient_post_view');
+				$this->load->view('dashboard/todo_list_view',$datos);
+				$this->load->view('dashboard/mediores_graficos_view');
+				$this->load->view('dashboard/graficos_pagos_view');
+				$this->load->view('dashboard/recient_post_view');
 			}
 			$this->load->view("probando_boton");
 			$this->load->view('templates/footer');

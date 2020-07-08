@@ -145,8 +145,6 @@
 									<li><?php echo anchor('clientes/agregar','Cliente Nuevo'); ?></li>
 								</ul>
 							</li>
-							
-<!-- 
 							<li class="sub-menu">
 								<a href=""><i  style="color:orange" class="zmdi zmdi-time"></i> Medidores</a>
 				
@@ -154,18 +152,17 @@
 									<li><?php echo anchor('inventario','Lista de Medidores'); ?></li>
 									<li><?php echo anchor('inventario/agregar_producto','Cargar Medidor'); ?></li>
 								</ul>
-							</li> -->
-							<!--  <li class="sub-menu">
-								<a href=""><i class="zmdi zmdi-accounts"></i> Tipos de Medidores</a>
+							</li>
+							<li class="sub-menu">
+								<a href=""><i style="color:green" class="zmdi zmdi-dns"></i> Tipos de Medidores</a>
 								<ul>
 									<li><?php echo anchor('tipos_medidores','Lista de Tipos de Medidores'); ?></li>
 									<li><?php echo anchor('tipos_medidores/agregar_tipo','Cargar Tipo Medidor'); ?></li>
 								</ul>
 							</li>
-						  -->
 							
 							<li class="sub-menu">
-								<a href=""><i style="color:red" class="zmdi zmdi-network"></i>Orden de trabajo</a>
+								<a href=""><i style="color:red" class="zmdi zmdi-collection-text"></i>Orden de trabajo</a>
 								<ul>
 									<li><?php echo anchor('orden_trabajo','Lista de ordenes de trabajo'); ?></li>
 								</ul>
@@ -191,6 +188,7 @@
 									<li><?php echo anchor('usuarios','Lista de usuarios'); ?></li>
 								</ul>
 							</li>
+							
 							<li class="sub-menu">
 								<a href=""><i class="zmdi zmdi-equalizer"></i>Mediciones</a>
 								<ul>

@@ -1,5 +1,4 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
 /*
 Este controller se encarga de hacer el abm de usuarios
 en la tabla usuarios

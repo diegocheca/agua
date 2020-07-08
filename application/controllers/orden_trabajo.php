@@ -507,6 +507,8 @@ class Orden_trabajo extends CI_Controller {
 		endif;
 	}
 	public function marcar_primer_medicion($id_conexion){
+		// ARREGLAR - ERROR
+		// sebe escrbir en la tabla facturacio_nueva no en mediciones
 		//Usado: 8-7-20 - Diego
 		//Corregido : 8-7-20 - Diego
 		//Como se usa: esta funcion se usa solo por medio de otra funcion ( terminar_tarea )

@@ -162,4 +162,41 @@ class Home extends MY_Controller {
 		*/
 		echo $this->load->view("templates/avatar_picker_view",true);
 	}
+	public function nuevologin ()
+	{
+		//Usado: 3-7-20 - Diego
+		//Corregido : 3-7-20 - Diego
+		//Como se usa: se accede por medio de url , deberia poder accederse mediante click en avatar del usuario logueadi
+		//Que es lo que hace: se usa para eliminar la sesion que se creo cuando se loguea
+		//Mejora: mejorar la visual , poner mas avatar, y hacer que se guarde la seleccion
+		/*Pasos que hace
+		Paso 1 - carga la vista , y se hace todo en la view
+		*/
+		echo $this->load->view("login/loginnuevo",true);
+	}
+	public function nuevologin_dos ()
+	{
+		//Usado: 3-7-20 - Diego
+		//Corregido : 3-7-20 - Diego
+		//Como se usa: se accede por medio de url , deberia poder accederse mediante click en avatar del usuario logueadi
+		//Que es lo que hace: se usa para eliminar la sesion que se creo cuando se loguea
+		//Mejora: mejorar la visual , poner mas avatar, y hacer que se guarde la seleccion
+		/*Pasos que hace
+		Paso 1 - carga la vista , y se hace todo en la view
+		*/
+		echo $this->load->view("login/logindos",true);
+	}
+	public function nuevologin_tres()
+	{
+		//Usado: 3-7-20 - Diego
+		//Corregido : 3-7-20 - Diego
+		//Como se usa: se accede por medio de url , deberia poder accederse mediante click en avatar del usuario logueadi
+		//Que es lo que hace: se usa para eliminar la sesion que se creo cuando se loguea
+		//Mejora: mejorar la visual , poner mas avatar, y hacer que se guarde la seleccion
+		/*Pasos que hace
+		Paso 1 - carga la vista , y se hace todo en la view
+		*/
+		echo $this->load->view("login/login_tres",true);
+	}
+
 }

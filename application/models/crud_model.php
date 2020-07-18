@@ -149,6 +149,15 @@ public function traer_facturas_por_barrio_nuevo_todocampo($sector = -1, $mes = -
 			return false;
 		endif;
 	}
+	public function traer_toda_la_tabla($tabla){
+		$consulta = $this->db->get($tabla);
+		if ($consulta->num_rows() > 0):
+			return $consulta->result();
+		else:
+			return false;
+		endif;
+	}
+
 
 	public function get_data_row_tres_campos($tabla,$campo,$valor, $campo1,$valor1, $campo2,$valor2){
 		$this->db->where($campo, $valor);

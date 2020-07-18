@@ -132,4 +132,53 @@ class Seeder extends CI_Controller
 		// despues del ejemplo Mostrando filas 0 - 24 (total de 829, La consulta tardó 0,0000 segundos.) [Medicion_Id: 17786... - 17762...]
 	} 
 
+
+	public function crear_deuda_multa($cantidad) 
+	{
+		//Usado: 18-7-20 - Diego
+		//Corregido : 18-7-20 - Diego
+		//Como se usa: se accede por url
+		//Que es lo que hace: Esta funcion sirva para agregar muchos registros en la tabla log_deuda_multa , que luego se muestra en un timeline
+		//  corre tantas veces como se pase el parametro
+		//Mejora:
+		//Tabla: log_deuda_multa
+		/*Pasos que hace
+		Paso 1 - crear array fake
+		Paso 2 - lo guarda en la db
+		*/
+
+		$faker = Faker\Factory::create();
+
+		// generate data by accessing properties
+		
+		$revisa = ["Si", "No"];
+		$campo = ["Deuda", "Multa"];
+
+		for ($i=0; $i < $cantidad ; $i++) {
+			//Paso 1 - crear array fake
+		$datos_fake = array(
+						'log_deuda_multa_Id' => null, 
+						'log_deuda_multa_Conexion_Id' => $faker->numberBetween($min = 1, $max = 1000),
+						'log_deuda_multa_Valor_Anterior' => $faker->numberBetween($min = 1, $max = 10000),
+						'log_deuda_multa_Valor_Actual' => $faker->numberBetween($min = 1, $max = 10000), 
+						'log_deuda_multa_Campo' => $campo[ $faker->numberBetween($min = 0, $max = 1)], 
+						'log_deuda_multa_Revisado' =>  $revisa[ $faker->numberBetween($min = 0, $max = 1)] ,
+						'log_deuda_multa_Quien' => $faker->numberBetween($min = 1, $max = 8),
+						'log_deuda_multa_Timestamp' =>  null,
+						);
+		//Paso 2 - lo guarda en la db
+					$id_medicion_recien_agregada = $this->Crud_model->insert_data("log_deuda_multa",$datos_fake);
+					if($id_medicion_recien_agregada)
+					{
+						echo '\n Se agrego crrectamente la medicion BIEN \n';
+					}
+					else 
+					{
+						echo '\n NO Se agrego crrectamente la medicion  - ERROR \n';
+					}
+			# code...
+		}
+		
+	} 
+
 }

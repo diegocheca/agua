@@ -150,6 +150,7 @@ public function traer_facturas_por_barrio_nuevo_todocampo($sector = -1, $mes = -
 		endif;
 	}
 	public function traer_toda_la_tabla($tabla){
+		$this->db->limit(5);  
 		$consulta = $this->db->get($tabla);
 		if ($consulta->num_rows() > 0):
 			return $consulta->result();

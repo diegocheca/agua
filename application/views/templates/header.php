@@ -267,7 +267,7 @@
 							<li class="sub-menu">
 								<a href=""><i style="color:red" class="zmdi zmdi-daydream-setting"></i>Auditoria</a>
 								<ul>
-									<li><?php echo anchor('autorizacion','Auditoria'); ?></li>
+									<li><?php echo anchor('auditoria','Auditoria'); ?></li>
 									
 								</ul>
 							</li>

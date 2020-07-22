@@ -1,205 +1,14 @@
 
-<style type="text/css">
-
-
-
-body {
-  font-family: 'Roboto';
-  font-size: 17px;
-  font-weight: 400;
-  background-color: #eee;
-}
-
-h1 {
-  font-size: 200%;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-weight: 400;
-}
-
-header p {
-  font-family: 'Allura';
-  color: rgba(255, 255, 255, 0.2);
-  margin-bottom: 0;
-  font-size: 60px;
-  margin-top: -30px;
-}
-
-.timeline {
-  position: relative;
-}
-.timeline::before {
-  content: '';
-  background: #C5CAE9;
-  width: 5px;
-  height: 95%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.timeline-item {
-  width: 100%;
-  margin-bottom: 70px;
-}
-.timeline-item:nth-child(even) .timeline-content {
-  float: right;
-  padding: 40px 30px 10px 30px;
-}
-.timeline-item:nth-child(even) .timeline-content .date {
-  right: auto;
-  left: 0;
-}
-.timeline-item:nth-child(even) .timeline-content::after {
-  content: '';
-  position: absolute;
-  border-style: solid;
-  width: 0;
-  height: 0;
-  top: 30px;
-  left: -15px;
-  border-width: 10px 15px 10px 0;
-  border-color: transparent #f5f5f5 transparent transparent;
-}
-.timeline-item::after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-.timeline-content {
-  position: relative;
-  width: 45%;
-  padding: 10px 30px;
-  border-radius: 4px;
-  background: #f5f5f5;
-  box-shadow: 0 20px 25px -15px rgba(0, 0, 0, 0.3);
-}
-.timeline-content::after {
-  content: '';
-  position: absolute;
-  border-style: solid;
-  width: 0;
-  height: 0;
-  top: 30px;
-  right: -15px;
-  border-width: 10px 0 10px 15px;
-  border-color: transparent transparent transparent #f5f5f5;
-}
-
-.timeline-img {
-  width: 30px;
-  height: 30px;
-  background: #3F51B5;
-  border-radius: 50%;
-  position: absolute;
-  left: 50%;
-  margin-top: 25px;
-  margin-left: -15px;
-}
-
-/*a {
-  background: #3F51B5;
-  color: #FFFFFF;
-  padding: 8px 20px;
-  text-transform: uppercase;
-  font-size: 14px;
-  margin-bottom: 20px;
-  margin-top: 10px;
-  display: inline-block;
-  border-radius: 2px;
-  box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.6);
-}
-a:hover, a:active, a:focus {
-  background: #32408f;
-  color: #FFFFFF;
-  text-decoration: none;
-}
-*/
-.timeline-card {
-  padding: 0 !important;
-}
-.timeline-card p {
-  padding: 0 20px;
-}
-.timeline-card a {
-  margin-left: 20px;
-}
-
-.timeline-item .timeline-img-header {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url("https://picsum.photos/1000/800/?random") center center no-repeat;
-  background-size: cover;
-}
-
-.timeline-img-header {
-  height: 200px;
-  position: relative;
-  margin-bottom: 20px;
-}
-.timeline-img-header h2 {
-  color: #FFFFFF;
-  position: absolute;
-  bottom: 5px;
-  left: 20px;
-}
-
-blockquote {
-  margin-top: 30px;
-  color: #757575;
-  border-left-color: #3F51B5;
-  padding: 0 20px;
-}
-
-.date {
-  background: #FF4081;
-  display: inline-block;
-  color: #FFFFFF;
-  padding: 10px;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-@media screen and (max-width: 768px) {
-  .timeline::before {
-    left: 50px;
-  }
-  .timeline .timeline-img {
-    left: 50px;
-  }
-  .timeline .timeline-content {
-    max-width: 100%;
-    width: auto;
-    margin-left: 70px;
-  }
-  .timeline .timeline-item:nth-child(even) .timeline-content {
-    float: none;
-  }
-  .timeline .timeline-item:nth-child(odd) .timeline-content::after {
-    content: '';
-    position: absolute;
-    border-style: solid;
-    width: 0;
-    height: 0;
-    top: 30px;
-    left: -15px;
-    border-width: 10px 15px 10px 0;
-    border-color: transparent #f5f5f5 transparent transparent;
-  }
-}
-
-
-</style>
 <div ng-app="infinitScrollApp">
 
 
 	<header>
 	  <div class="container text-center">
-	    <h1>Logs del sistema</h1>
+	    <h1>Logs del sistema</h1> <a data-target="#buscarmodal" data-toggle="modal" class="MainNavText" id="MainNavHelp" href="#buscarmodal"> <i class="zmdi zmdi-search"></i>Buscar Registros</a>
 	  </div>
 	</header>
 
-	<!--MODALE DE GRAFICOS-->
+	<!--MODAL DE GRAFICOS-->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
 		<div class="modal-dialog" style="margin-right: 50px, margin-left: 50px; width:85%">
 			<div class="modal-content">
@@ -227,7 +36,7 @@ blockquote {
 									<div class="input-group form-group">
 										<span class="input-group-addon"><i class="zmdi zmdi-pin"></i></span>
 										<div class="fg-line select">
-											<input type="number" name="registro_id_modal" id="registro_id_modal" class='form-control input-sm'><!--log_deuda_multa_Conexion_Id-->
+											<input type="number" name="conexion_id_modal" id="conexion_id_modal" class='form-control input-sm'><!--log_deuda_multa_Conexion_Id-->
 										</div>
 									</div>
 								</div>
@@ -236,7 +45,7 @@ blockquote {
 									<div class="input-group form-group">
 										<span class="input-group-addon"><i class="zmdi zmdi-undo"></i></span>
 										<div class="fg-line select">
-											<input type="number" name="registro_id_modal" id="registro_id_modal" class='form-control input-sm'><!-- log_deuda_multa_Valor_Anterior -->
+											<input type="number" name="valor_anterior_modal" id="valor_anterior_modal" class='form-control input-sm'><!-- log_deuda_multa_Valor_Anterior -->
 										</div>
 									</div>
 								</div>
@@ -247,7 +56,7 @@ blockquote {
 									<div class="input-group form-group">
 										<span class="input-group-addon"><i class="zmdi zmdi-redo"></i></span>
 										<div class="fg-line select">
-											<input type="number" name="registro_id_modal" id="registro_id_modal" class='form-control input-sm'><!-- log_deuda_multa_Valor_Actual -->
+											<input type="number" name="valor_actual_modal" id="valor_actual_modal" class='form-control input-sm'><!-- log_deuda_multa_Valor_Actual -->
 										</div>
 									</div>
 								</div>
@@ -256,7 +65,7 @@ blockquote {
 									<div class="input-group form-group">
 										<span class="input-group-addon"><i class="zmdi zmdi-space-bar"></i></span>
 										<div class="fg-line select">
-											<input type="number" name="registro_id_modal" id="registro_id_modal" class='form-control input-sm'><!-- log_deuda_multa_Valor_Campo-->
+											<input type="number" name="campo_modal" id="campo_modal" class='form-control input-sm'><!-- log_deuda_multa_Valor_Campo-->
 										</div>
 									</div>
 								</div>
@@ -265,7 +74,7 @@ blockquote {
 									<div class="input-group form-group">
 										<span class="input-group-addon"><i class="zmdi zmdi-account-box"></i></span>
 										<div class="fg-line select">
-											<input type="text" name="registro_id_modal" id="registro_quien_modal" class='form-control input-sm'><!-- log_deuda_multa_Quien-->
+											<input type="text" name="quien_id_modal" id="quien_id_modal" class='form-control input-sm'><!-- log_deuda_multa_Quien-->
 										</div>
 									</div>
 								</div>
@@ -275,7 +84,7 @@ blockquote {
 										<div class="input-group form-group">
 											<span class="input-group-addon"><i class="zmdi zmdi-calendar"></i></span>
 											<div class="fg-line select">
-												<input type="date" name="registro_cuando_modal" id="registro_id_modal" class='form-control input-sm'><!-- log_deuda_multa_Timestamp :  -->
+												<input type="date" name="cuando_modal" id="cuando_modal" class='form-control input-sm'><!-- log_deuda_multa_Timestamp :  -->
 											</div>
 										</div>
 									</div>
@@ -290,6 +99,103 @@ blockquote {
 			</div>
 		</div>
 	</div>
+
+	<!--MODAL DE Buscador-->
+	<div class="modal fade" id="buscarmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+		<div class="modal-dialog" style="margin-right: 50px, margin-left: 50px; width:85%">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel">Buscador de Registros </h4>
+				</div>
+				<div class="modal-body">
+					<form id="formulario_filtro_sector" method="POST" action="<?php echo base_url('auditoria'); ?>">
+						<div class="card-body card-padding text-center">
+							<br><br>
+							<div class="row">
+								<div class="col-md-4">
+									<label for="inputTipoPersona">Registro Id</label>
+									<div class="input-group form-group">
+										<span class="input-group-addon"><i class="zmdi zmdi-dialpad"></i></span>
+										<div class="fg-line select">
+											<input type="number" name="registro_id_modal" id="registro_id_modal" class='form-control input-sm'> <!--log_deuda_multa_Id-->
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<label for="inputTipoPersona">Conexion Id</label>
+									<div class="input-group form-group">
+										<span class="input-group-addon"><i class="zmdi zmdi-pin"></i></span>
+										<div class="fg-line select">
+											<input type="number" name="conexion_id_modal" id="conexion_id_modal" class='form-control input-sm'><!--log_deuda_multa_Conexion_Id-->
+										</div>
+									</div>
+								</div>
+								
+							</div>
+							<div class="row">
+								
+								
+								<div class="col-md-4">
+									<label for="inputTipoPersona">Quien</label>
+									<div class="input-group form-group">
+										<span class="input-group-addon"><i class="zmdi zmdi-account-box"></i></span>
+										<div class="fg-line select">
+											<input type="text" name="quien_id_modal" id="quien_id_modal" class='form-control input-sm'><!-- log_deuda_multa_Quien-->
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<label for="inputTipoPersona">Cuando</label>
+										<div class="input-group form-group">
+											<span class="input-group-addon"><i class="zmdi zmdi-calendar"></i></span>
+											<div class="fg-line select">
+												<input type="date" name="cuando_modal" id="cuando_modal" class='form-control input-sm'><!-- log_deuda_multa_Timestamp :  -->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<label for="select_tipo_movimiento">Seleccione el tipo:</label>
+								<select name="select_tipo_movimiento"  id="select_tipo_movimiento" class="chosen" data-placeholder="Elige el tipo" >
+									<option value="-1" selected disabled >Sin Filtro</option>
+									<option value="2" >Egreso</option>
+									<option value="1" >Ingreso</option>
+								</select>
+							</div>
+							<br><br>
+							<div class="row">
+								<div class="col-md-6">
+									<label>Inicio :</label>
+									<input type="date" name="inicio_reporte_pagos" id="inicio_reporte_pagos" min="2018-02-02">
+								</div>
+								<div class="col-md-6">
+									<label>Fin:</label>
+									<input type="date" name="fin_reporte_pagos" id="fin_reporte_pagos" max="<?php echo date("Y-m-d"); ?>">
+								</div>
+							</div>
+							<br>
+							<br>
+
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<div class="row">
+						<div class="col-md-8">
+							<button class="btn bgm-lime btn-float waves-effect waves-button waves-float waves-circle " id="buscar_registros_modal" name="buscar_registros_modal" type="submit"><i class="zmdi zmdi-search"></i></button>
+						</div>
+						<div class="col-md-4">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 
 	<section class="timeline" style="width:100%; padding-left: 0px"  ng-controller="infinitScrollController">
@@ -327,17 +233,17 @@ blockquote {
 
 
 
-	    <div class="timeline-item" ng-repeat="item in registros | limitTo: limit" in-view="loadMore($last, $inview)" >
+	    <div class="timeline-item" ng-repeat="item in resgistros | limitTo: limit" in-view="loadMore($last, $inview)" >
 	      <div class="timeline-img"></div>
 
 	      <div class="timeline-content js--fadeInLeft">
-	        <h2>Title del angular</h2>
+	        <h2>{{item.log_deuda_multa_Quien}}</h2>
 	        <div class="date">1 MAY 2016</div>
 	        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsa ratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.</p>
 	        <a class="bnt-more" href="javascript:void(0)">More</a>
 	      </div>
 	    </div>
-	    <div class="timeline-item">
+	<!--     <div class="timeline-item">
 	      <div class="timeline-img"></div>
 
 	      <div class="timeline-content js--fadeInLeft">
@@ -460,7 +366,7 @@ blockquote {
 	        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsa ratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.</p>
 	        <a class="bnt-more" href="javascript:void(0)">More</a>
 	      </div>
-	    </div>   
+	    </div>    -->
 
 
 
@@ -598,7 +504,7 @@ function aprobar_log (id)
 <script type="text/javascript">
 	angular.module('infinitScrollApp', ['angular-inview'])
        .controller('infinitScrollController', infinitScrollController);
-       $scope.registros = [],
+       //$scope.registros = [],
        /*
 
        	log_deuda_multa_Id
@@ -611,6 +517,8 @@ function aprobar_log (id)
 		*/
 
 		function infinitScrollController($scope) {
+		$scope.resgistros = [],
+		console.log('Emepzamos con los registros vacios: '+$scope.resgistros);
 		  $scope.resgistros = [
 		  {
 	       	log_deuda_multa_Id : 1,
@@ -649,6 +557,10 @@ function aprobar_log (id)
 			log_deuda_multa_Timestamp :  "2020-07-25 15:15:30"
 		}
 		];
+
+		console.log('Registros cargados: \n ');
+		console.log($scope.resgistros);
+
 
 
 		  //$scope.items = Array.from(Array(1000).keys());

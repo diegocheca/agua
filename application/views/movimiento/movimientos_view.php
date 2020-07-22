@@ -34,18 +34,20 @@
 							</div>
 							<br>
 							<br>
-							<hr>
-							<br>
-							<br>
-							<div class="row">
-								<button class="btn bgm-lime btn-float waves-effect waves-button waves-float waves-circle " id="filtrar_mes_de_medicion" name="filtrar_mes_de_medicion" type="submit"><i class="zmdi zmdi-search"></i></button>
-							</div>
 						</div>
 					</form>
 				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				<div class="modal-footer">
+					<div class="row">
+						<div class="col-md-6">
+							<button class="btn bgm-lime btn-float waves-effect waves-button waves-float waves-circle " id="filtrar_mes_de_medicion" name="filtrar_mes_de_medicion" type="submit"><i class="zmdi zmdi-search"></i></button>
+						</div>
+						<div class="col-md-6">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+						</div>
+						
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

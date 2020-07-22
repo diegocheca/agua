@@ -18,6 +18,53 @@ class Auditoria extends CI_Controller {
 		Paso 3 - hago el super join
 		Paso 4 - Carga pagina (views)
 		*/
+
+
+
+
+
+
+
+
+		/*
+		else:
+			if($fin == 0)
+				$fin = $this->input->post('fin_reporte_pagos');
+
+			if($inicio == 0)
+				$inicio = $this->input->post('inicio_reporte_pagos');
+
+			if($tipo == 0)
+				$tipo = $this->input->post('select_tipo_movimiento');
+
+
+			$this->breadcrumbs->push('Dashboard', '/');
+			$this->breadcrumbs->push('Movimientos', '/movimiento');
+			$datos['bread']=$this->breadcrumbs->show();
+			$segmentos_totales=$this->uri->total_segments();
+			$datos['segmentos']=$segmentos_totales;
+			$datos['titulo']= "Movimiento";
+
+			$datos['consulta']=$this->Nuevo_model->buscar_movimientos_tabla($inicio,$fin, $tipo);
+
+			$datos['mensaje'] = $this->session->flashdata('aviso');
+			$this->load->view('templates/header',$datos);
+			$data ['mensaje'] = $this->session->flashdata('aviso');
+			if($data ['mensaje'] != null)
+			{
+				$data ['tipo'] = $this->session->flashdata('tipo_aviso');
+				if($data ['tipo'] == "success")
+				{
+					$this->load->view("templates/notificacion_correcta_success", $data);
+				}
+				else
+					$this->load->view("templates/notificacion_incorrecta_success", $data);
+			}
+			$this->load->view('movimiento/movimientos_view',$datos);
+			$this->load->view('templates/footer');
+
+
+			*/
 		//Paso 1 - veo si esta logueado el usuario
 		if (!$this->session->userdata('login')):
 			$this->session->set_flashdata('mensaje','Debes Iniciar Sesion');
@@ -39,7 +86,8 @@ class Auditoria extends CI_Controller {
 			//Paso 4 - Carga pagina (views)
 			$datos['logs'] = $this->Crud_model->traer_toda_la_tabla('log_deuda_multa');
 			//var_dump($datos['logs']);die();
-			$this->load->view('auditoria/timeline.php', $datos);
+			$this->load->view('auditoria/timeline-auditoria'); // es el css de la vista
+			$this->load->view('auditoria/timeline', $datos);
 			//$this->load->view('usuarios/todos',$data);
 			$this->load->view('templates/footer');
 			$this->load->view('templates/footer_fin');

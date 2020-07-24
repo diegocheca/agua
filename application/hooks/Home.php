@@ -13,20 +13,19 @@ class Home
 	}    
 	public function check_login()
 	{
-		if ($this->ci->uri->segment(1) == "notificacion")
+		if ($this->ci->uri->segment(1) == "notificacion")  // ni idea q son las notificaciones
 			return true;
-		if($this->ci->uri->segment(1) != "login")
+		if($this->ci->uri->segment(1) != "login")  //si queres ver algo q no sea el login entonces..
 		{
-			if(($this->ci->session->userdata('is_logued_in') != ''))
+			if(($this->ci->session->userdata('is_logued_in') != '')) // ya estoy logueado asiq puedo navegar
 				return true;
 			else 
-		 	{
-				if(($this->ci->uri->segment(1)==null)||($this->ci->uri->segment(1)==''))
+				if(($this->ci->uri->segment(1)==null)||($this->ci->uri->segment(1)=='')) // estoy logueado
 					return true;
 				else
 				{
 					echo "usted debe estar logado para ingresar al sistema. Hagalo aqui: <a href='http://localhost/codeigniter/'>Ingrese aqui</a> "; 
-					die();
+					die(); // si no esta logueado q se logue
 				} 
 			}
 		}
@@ -40,6 +39,7 @@ class Home
 				require 'levels.php';
 				$class = $this->ci->uri->segment(1);
 				$method = $this->ci->uri->segment(2);
+				
 				if($method==null)
 					$method = 'index';
 				if(($method == "logout_ci")&&($class == "login"))
@@ -82,8 +82,9 @@ class Home
 								}
 						}
 					}
-			}
+				}
 			elseif($this->ci->uri->segment(1)=='login') return true;
 			elseif($this->ci->uri->segment(1)=='notificacion') return true;
 	}
 }
+		 	{

@@ -374,6 +374,10 @@ $privs['secretaria']['usuarios']['modificar_tmedidor'] = true;
 $privs['secretaria']['usuarios']['guardar_agregar'] = true; 
 $privs['secretaria']['usuarios']['agregar_usuario'] = true; 
 
+
+
+$privs['secretaria']['api']['test'] = true; 
+
 /*$privs['generador']['generador']['modificar_generador'] = true; 
 /*$privs['generador']['generador']['modificar_transportista'] = true; 
 /*$privs['generador']['generador']['transportista_modificado'] = true; 

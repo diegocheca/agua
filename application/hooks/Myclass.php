@@ -21,6 +21,14 @@ class Myclass
     {
       $class = $this->_ci->uri->segment(1);
       $method = $this->_ci->uri->segment(2);
+      /*
+      ACA ACLARO QUE PARA ACCEDER A LAS APIS NO SE NECESITA ESTAR LOGUEADO
+      */
+      if($class == "api")  
+      {
+        // $method = 'index';
+        return true;
+      }
       if($this->_ci->session->userdata('is_logued_in') == TRUE)
       {
         require 'levels.php';
@@ -50,6 +58,7 @@ class Myclass
             // echo "me voy por el 4";
              return true;
           }
+
          if($class == "error")
            {
             //  $method = 'index';
